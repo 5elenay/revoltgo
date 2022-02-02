@@ -69,7 +69,7 @@ func (c *Client) Destroy() {
 func (c *Client) ping() {
 	for {
 		time.Sleep(30 * time.Second)
-		c.Socket.SendText("{\"type\":\"Ping\",\"data\":0}")
+		c.Socket.SendText(fmt.Sprintf("{\"type\":\"Ping\",\"data\":%d}", time.Now().Unix()))
 	}
 }
 
